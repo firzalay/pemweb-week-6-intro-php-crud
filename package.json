@@ -5,5 +5,10 @@
     },
     "scripts": {
         "dev": " npx @tailwindcss/cli -i ./public/src/css/input.css -o ./public/src/css/output.css --watch"
+    },
+    "devDependencies": {
+        "@prettier/plugin-php": "^0.24.0",
+        "prettier": "^3.8.1",
+        "prettier-plugin-tailwindcss": "^0.7.2"
     }
 }

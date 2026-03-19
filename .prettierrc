@@ -1,0 +1,12 @@
+{
+  "plugins": ["prettier-plugin-tailwindcss", "@prettier/plugin-php"],
+  "overrides": [
+    {
+      "files": "*.php",
+      "options": {
+        "parser": "php"
+      }
+    }
+  ],
+  "tailwindStylesheet": "./public/src/css/input.css"
+}
