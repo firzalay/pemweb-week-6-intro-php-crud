@@ -18,7 +18,7 @@
             </ul>
         </div>
         <div class="flex items-center gap-4 p-2 hover:bg-gray-200 cursor-pointer group">
-            <img src="./public/src/images/image.png" alt="Profile Image" class="w-15 h-15 rounded-full objcet-cover">
+            <img src="/public/src/images/image.png" alt="Profile Image" class="w-15 h-15 rounded-full objcet-cover">
             <h1 class="text-gray-600 font-bold group-hover:text-blue-600">John Doe</h1>
         </div>
       </nav>
