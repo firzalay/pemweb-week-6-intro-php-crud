@@ -11,10 +11,10 @@
               class="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
             />
           </div>
-          <button class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer">
+          <a href="./index.php?page=create" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer">
             <i data-lucide="plus" class="w-4 h-4" stroke-width="2"></i>
-            <a href="./index.php?page=create">Tambah Mahasiswa</a>
-          </button>
+            Tambah Mahasiswa
+          </a>
         </div>
  
 
