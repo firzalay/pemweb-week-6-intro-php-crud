@@ -13,7 +13,7 @@
           </div>
           <button class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer">
             <i data-lucide="plus" class="w-4 h-4" stroke-width="2"></i>
-            Tambah Mahasiswa
+            <a href="./index.php?page=create">Tambah Mahasiswa</a>
           </button>
         </div>
  
