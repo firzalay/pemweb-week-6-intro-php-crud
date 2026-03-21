@@ -1,3 +1,16 @@
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $dataMahasiswa = [
+        "npm" => htmlspecialchars($_POST["npm"]),
+        "nama" => htmlspecialchars($_POST["nama"]),
+        "jurusan" => htmlspecialchars($_POST["jurusan"]),
+        "no_telp" => htmlspecialchars($_POST["no_telp"]),
+    ];
+
+    addDataMahasiswa($pdo, $dataMahasiswa);
+} ?>
+
 <main class="flex-1 p-4">
   <h1 class="text-2xl mt-2 mb-4 font-semibold">Tambah Data Mahasiswa</h1>
 
@@ -31,7 +44,7 @@
     </div>
 
     <div class="flex justify-end mt-6">
-      <button type="submit"
+      <button type="submit" name="submit"
         class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2 rounded-lg cursor-pointer">
         <i data-lucide="plus" class="w-4 h-4" stroke-width="2"></i>
         Tambah Mahasiswa
