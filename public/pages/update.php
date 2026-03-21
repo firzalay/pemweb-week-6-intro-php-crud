@@ -3,8 +3,16 @@
 $npm = $_GET["npm"];
 $mahasiswa = getDataMahasiswaByNPM($pdo, $npm);
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $dataMahasiswa = [
+        "npm" => htmlspecialchars($_POST["npm"]),
+        "nama" => htmlspecialchars($_POST["nama"]),
+        "jurusan" => htmlspecialchars($_POST["jurusan"]),
+        "no_telp" => htmlspecialchars($_POST["no_telp"]),
+    ];
 
-
+    updateDataMahasiswa($pdo, $dataMahasiswa);
+} 
 ?>
 
 <main class="flex-1 p-4">

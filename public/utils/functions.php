@@ -34,4 +34,24 @@ function addDataMahasiswa($pdo, $dataMahasiswa)
     }
 }
 
+function updateDataMahasiswa($pdo, $dataMahasiswa)
+{
+    try {
+        $stmt = $pdo->prepare("UPDATE mahasiswa SET NPM=?, nama=?, jurusan=?, no_telp=? WHERE NPM=? ");
+        $stmt->execute([
+            $dataMahasiswa["npm"],
+            $dataMahasiswa["nama"],
+            $dataMahasiswa["jurusan"],
+            $dataMahasiswa["no_telp"],
+            $dataMahasiswa["npm"],
+        ]);
+
+        echo "<script>alert('Berhasil mengupdate data!'); window.location.href='index.php'</script> ";
+    } catch (PDOException $e) {
+        echo "<script>alert('Gagal mengupdate data: " .
+            $e->getMessage() .
+            "');</script>";
+    }
+}
+
 ?>
