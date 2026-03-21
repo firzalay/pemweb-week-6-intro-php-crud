@@ -52,8 +52,8 @@ $allMahasiswa = getDataMahasiswa($pdo); ?>
                                 ) ?></td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center gap-2">
-                                        <button class="text-blue-600 hover:text-blue-800"><a href="./index.php?page=update&npm=<?= $mahasiswa["NPM"] ?>"><i data-lucide="pencil" class="w-4 h-4" stroke-width="1.5"></i></a></button>
-                                        <button class="text-red-500 hover:text-red-700"><i data-lucide="trash-2" class="w-4 h-4" stroke-width="1.5"></i></button>
+                                        <button class="text-blue-600 hover:text-blue-800 cursor-pointer"><a href="./index.php?page=update&npm=<?= $mahasiswa["NPM"] ?>"><i data-lucide="pencil" class="w-4 h-4" stroke-width="1.5"></i></a></button>
+                                        <button class="text-red-500 hover:text-red-700 cursor-pointer"><a href="./index.php?page=delete&npm=<?= $mahasiswa["NPM"] ?>"><i data-lucide="trash-2" class="w-4 h-4" stroke-width="1.5"></i></a></button>
                                     </div>
                                 </td>
                             </tr>
