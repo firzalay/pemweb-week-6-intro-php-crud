@@ -1,4 +1,7 @@
 <?php
+require_once 'config.php';
+require_once './public/utils/functions.php';
+
 $page = $_GET['page'] ?? 'home';
 
 $allowed_pages = ['home', 'create'];
