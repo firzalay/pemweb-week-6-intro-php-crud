@@ -1,6 +1,5 @@
 <?php
-$allMahasiswa = getDataMahasiswa($pdo); 
-?>
+$allMahasiswa = getDataMahasiswa($pdo); ?>
 
 <main class="flex-1 p-4">
       <h1 class="text-2xl mt-2 mb-4 font-semibold">Manajemen Mahasiswa</h1>
@@ -35,22 +34,30 @@ $allMahasiswa = getDataMahasiswa($pdo);
                         </tr>
                     </thead>
                     <tbody id="tableBody" class="divide-y divide-gray-100">
-                        <?php $number = 1 ?>
-                        <?php foreach ($allMahasiswa as $mahasiswa) :?>
+                        <?php $number = 1; ?>
+                        <?php foreach ($allMahasiswa as $mahasiswa): ?>
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-gray-500"><?= $number++ ?></td>
-                                <td class="px-4 py-3 text-gray-800"><?= htmlspecialchars($mahasiswa["NPM"]) ?></td>
-                                <td class="px-4 py-3 text-gray-600"><?= htmlspecialchars($mahasiswa["nama"]) ?></td>
-                                <td class="px-4 py-3 text-gray-600"><?= htmlspecialchars($mahasiswa["jurusan"]) ?></td>
-                                <td class="px-4 py-3 text-gray-600"><?= htmlspecialchars($mahasiswa["no_telp"]) ?></td>
+                                <td class="px-4 py-3 text-gray-800"><?= htmlspecialchars(
+                                    $mahasiswa["NPM"],
+                                ) ?></td>
+                                <td class="px-4 py-3 text-gray-600"><?= htmlspecialchars(
+                                    $mahasiswa["nama"],
+                                ) ?></td>
+                                <td class="px-4 py-3 text-gray-600"><?= htmlspecialchars(
+                                    $mahasiswa["jurusan"],
+                                ) ?></td>
+                                <td class="px-4 py-3 text-gray-600"><?= htmlspecialchars(
+                                    $mahasiswa["no_telp"],
+                                ) ?></td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center gap-2">
-                                        <button class="text-blue-600 hover:text-blue-800"><i data-lucide="pencil" class="w-4 h-4" stroke-width="1.5"></i></button>
+                                        <button class="text-blue-600 hover:text-blue-800"><a href="./index.php?page=update&npm=<?= $mahasiswa["NPM"] ?>"><i data-lucide="pencil" class="w-4 h-4" stroke-width="1.5"></i></a></button>
                                         <button class="text-red-500 hover:text-red-700"><i data-lucide="trash-2" class="w-4 h-4" stroke-width="1.5"></i></button>
                                     </div>
                                 </td>
                             </tr>
-                        <?php endforeach ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

@@ -4,7 +4,7 @@ require_once './public/utils/functions.php';
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['home', 'create'];
+$allowed_pages = ['home', 'create', 'update'];
 
 if (!in_array($page, $allowed_pages)) {
   $page = 'home';

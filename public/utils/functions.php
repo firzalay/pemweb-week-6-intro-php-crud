@@ -8,6 +8,13 @@ function getDataMahasiswa($pdo)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getDataMahasiswaByNPM($pdo, $npm)
+{
+    $stmt = $pdo->prepare("SELECT * FROM mahasiswa WHERE NPM = ?");
+    $stmt->execute([$npm]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 function addDataMahasiswa($pdo, $dataMahasiswa)
 {
     try {
@@ -20,7 +27,6 @@ function addDataMahasiswa($pdo, $dataMahasiswa)
         ]);
 
         echo "<script>alert('Berhasil menambahkan data!'); window.location.href='index.php'</script> ";
-        
     } catch (PDOException $e) {
         echo "<script>alert('Gagal menambahkan data: " .
             $e->getMessage() .
