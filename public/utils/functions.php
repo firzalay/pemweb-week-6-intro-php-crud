@@ -15,11 +15,13 @@ function login($pdo, $dataUser)
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        echo "<script>alert('Username / password salah!'); window.location.href='index.php'</script> ";
+        echo "<script>alert('Username / password salah!'); window.location.href='index.php?page=login'</script> ";
+        exit;
     }
 
     if ($password !== $user["password"]) {
-        echo "<script>alert('Username / password salah!'); window.location.href='index.php'</script> ";
+        echo "<script>alert('Username / password salah!'); window.location.href='index.php?page=login'</script> ";
+        exit;
     }
 
     $_SESSION["login"] = true;

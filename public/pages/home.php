@@ -1,21 +1,26 @@
 <?php
-$allMahasiswa = getDataMahasiswa($pdo); 
+$allMahasiswa = getDataMahasiswa($pdo);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dataMahasiswa = [
         "npm" => htmlspecialchars($_POST["npm"]),
     ];
 
-    deleteDataMahasiswa($pdo ,$dataMahasiswa);
+    deleteDataMahasiswa($pdo, $dataMahasiswa);
 }
 ?>
 
 <?php include "./public/components/Sidebar.php"; ?>
 
 <main class="flex-1 p-4">
-      <h1 class="text-2xl mt-2 mb-4 font-semibold">Halo, <?= $_COOKIE[
-          "username"
-      ] ?></h1>
+    <?php if ($_COOKIE["username"]): ?>
+        <h1 class="text-2xl mt-2 mb-4 font-semibold">Halo, <?= $_COOKIE[
+            "username"
+        ] ?></h1>
+    <?php else: ?>
+        <h1 class="text-2xl mt-2 mb-4 font-semibold">Halo, Admin!</h1>
+    <?php endif; ?>
+
       
       <div class="flex items-center gap-3 mb-6">
           <div class="relative flex-1 max-w-sm">
