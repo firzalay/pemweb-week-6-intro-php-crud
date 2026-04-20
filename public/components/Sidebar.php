@@ -1,3 +1,10 @@
+<?php
+
+if (isset($_POST["logout"])) {
+    logout();
+} ?>
+
+
 <aside class="bg-white border-r border-gray-200 ">
       <nav class="min-h-screen flex flex-col justify-between">
         <div class="p-4">
@@ -17,9 +24,14 @@
               </li>
             </ul>
         </div>
-        <div class="flex items-center gap-4 p-2 hover:bg-gray-200 cursor-pointer group">
+        <div class="flex items-center gap-4 p-2 hover:bg-gray-200 cursor-pointer">
             <img src="/public/assets/images/image.png" alt="Profile Image" class="w-15 h-15 rounded-full objcet-cover">
-            <h1 class="text-gray-600 font-bold group-hover:text-blue-600">John Doe</h1>
+            <h1 class="text-gray-600 font-bold ">John Doe</h1>
+            <form action="" method="POST" class="flex">
+              <button type="submit" name="logout">
+                <i data-lucide="log-out" class="w-4 h-4 cursor-pointer hover:text-red-500" stroke-width="1.5"></i>
+              </button>
+            </form>
         </div>
       </nav>
 </aside>

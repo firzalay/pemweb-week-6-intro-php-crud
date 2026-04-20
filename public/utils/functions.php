@@ -33,6 +33,16 @@ function login($pdo, $dataUser)
     echo "<script>alert('Berhasil login!'); window.location.href='index.php?page=home'</script> ";
 }
 
+function logout() 
+{
+    session_start();
+    $_SESSION = [];
+    session_unset();
+    session_destroy();
+    echo "<script>alert('Berhasil logout!'); window.location.href='index.php?page=login'</script> ";
+
+}
+
 function getDataMahasiswa($pdo)
 {
     $stmt = $pdo->query("SELECT * FROM mahasiswa");
@@ -91,7 +101,6 @@ function deleteDataMahasiswa($pdo, $dataMahasiswa)
 {
     try {
         $stmt = $pdo->prepare("DELETE FROM mahasiswa WHERE NPM = ?");
-        var_dump($dataMahasiswa["npm"]);
         $stmt->execute([$dataMahasiswa["npm"]]);
 
         $rowCount = $stmt->rowCount();
