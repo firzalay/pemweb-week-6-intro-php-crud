@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'config.php';
 require_once './public/utils/functions.php';
 
@@ -8,6 +9,18 @@ $allowed_pages = ['home', 'create', 'update', 'delete', 'login'];
 
 if (!in_array($page, $allowed_pages)) {
   $page = 'login';
+}
+
+$publicPages = ["login"];
+
+if (!in_array($page, $publicPages) && !isset($_SESSION['login'])) {
+    header("Location: index.php?page=login");
+    exit;
+}
+
+if ($page === 'login' && isset($_SESSION['login'])) {
+    header("Location: index.php?page=home");
+    exit;
 }
 
 $page = "./public/pages/$page.php";

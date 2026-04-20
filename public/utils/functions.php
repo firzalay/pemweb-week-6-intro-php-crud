@@ -6,7 +6,6 @@ function login($pdo, $dataUser)
 {
     session_start();
 
-
     $username = $dataUser["username"];
     $password = $dataUser["password"];
 
@@ -14,7 +13,6 @@ function login($pdo, $dataUser)
     $stmt->execute([$username]);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
 
     if (!$user) {
         echo "<script>alert('Username / password salah!'); window.location.href='index.php'</script> ";
@@ -89,11 +87,12 @@ function updateDataMahasiswa($pdo, $dataMahasiswa)
     }
 }
 
-function deleteDataMahasiswa($pdo, $npm)
+function deleteDataMahasiswa($pdo, $dataMahasiswa)
 {
     try {
         $stmt = $pdo->prepare("DELETE FROM mahasiswa WHERE NPM = ?");
-        $stmt->execute([$npm]);
+        var_dump($dataMahasiswa["npm"]);
+        $stmt->execute([$dataMahasiswa["npm"]]);
 
         $rowCount = $stmt->rowCount();
 

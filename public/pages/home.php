@@ -1,19 +1,21 @@
 <?php
-session_start();
-
-if (!isset($_SESSION["login"])) {
-    header("Location: index.php?page=login");;
-    exit;
-}
-
 $allMahasiswa = getDataMahasiswa($pdo); 
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $dataMahasiswa = [
+        "npm" => htmlspecialchars($_POST["npm"]),
+    ];
+
+    deleteDataMahasiswa($pdo ,$dataMahasiswa);
+}
 ?>
 
-<?php include './public/components/Sidebar.php' ?>
+<?php include "./public/components/Sidebar.php"; ?>
 
 <main class="flex-1 p-4">
-      <h1 class="text-2xl mt-2 mb-4 font-semibold">Halo, <?= $_COOKIE["username"] ?></h1>
+      <h1 class="text-2xl mt-2 mb-4 font-semibold">Halo, <?= $_COOKIE[
+          "username"
+      ] ?></h1>
       
       <div class="flex items-center gap-3 mb-6">
           <div class="relative flex-1 max-w-sm">
@@ -63,8 +65,15 @@ $allMahasiswa = getDataMahasiswa($pdo);
                                 ) ?></td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center gap-2">
-                                        <button class="text-blue-600 hover:text-blue-800 cursor-pointer"><a href="./index.php?page=update&npm=<?= $mahasiswa["NPM"] ?>"><i data-lucide="pencil" class="w-4 h-4" stroke-width="1.5"></i></a></button>
-                                        <button class="text-red-500 hover:text-red-700 cursor-pointer"><a href="./index.php?page=delete&npm=<?= $mahasiswa["NPM"] ?>"><i data-lucide="trash-2" class="w-4 h-4" stroke-width="1.5"></i></a></button>
+                                        <button class="text-blue-600 hover:text-blue-800 cursor-pointer"><a href="./index.php?page=update&npm=<?= $mahasiswa[
+                                            "NPM"
+                                        ] ?>"><i data-lucide="pencil" class="w-4 h-4" stroke-width="1.5"></i></a></button>
+                                       <form action="" method="POST">
+                                            <input type="hidden" name="npm" value="<?= $mahasiswa[
+                                                "NPM"
+                                            ] ?>">
+                                            <button type="submit" name="deleteMahasiswa"><i data-lucide="trash" class="w-4 h-4 cursor-pointer" stroke-width="1.5"></i></button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
