@@ -1,8 +1,19 @@
 <?php
-$allMahasiswa = getDataMahasiswa($pdo); ?>
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php?page=login");;
+    exit;
+}
+
+$allMahasiswa = getDataMahasiswa($pdo); 
+
+?>
+
+<?php include './public/components/Sidebar.php' ?>
 
 <main class="flex-1 p-4">
-      <h1 class="text-2xl mt-2 mb-4 font-semibold">Manajemen Mahasiswa</h1>
+      <h1 class="text-2xl mt-2 mb-4 font-semibold">Halo, <?= $_COOKIE["username"] ?></h1>
       
       <div class="flex items-center gap-3 mb-6">
           <div class="relative flex-1 max-w-sm">

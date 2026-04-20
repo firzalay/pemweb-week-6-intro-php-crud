@@ -2,6 +2,39 @@
 
 require_once "./config.php";
 
+function login($pdo, $dataUser)
+{
+    session_start();
+
+
+    $username = $dataUser["username"];
+    $password = $dataUser["password"];
+
+    $stmt = $pdo->prepare("SELECT * FROM user WHERE username = ? ");
+    $stmt->execute([$username]);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+    if (!$user) {
+        echo "<script>alert('Username / password salah!'); window.location.href='index.php'</script> ";
+    }
+
+    if ($password !== $user["password"]) {
+        echo "<script>alert('Username / password salah!'); window.location.href='index.php'</script> ";
+    }
+
+    $_SESSION["login"] = true;
+    $_SESSION["id"] = $user["id"];
+    $_SESSION["username"] = $user["username"];
+
+    if (isset($dataUser["rememberme"])) {
+        setcookie("username", $user["username"], time() + 60 * 60 * 24 * 7);
+    }
+
+    echo "<script>alert('Berhasil login!'); window.location.href='index.php?page=home'</script> ";
+}
+
 function getDataMahasiswa($pdo)
 {
     $stmt = $pdo->query("SELECT * FROM mahasiswa");

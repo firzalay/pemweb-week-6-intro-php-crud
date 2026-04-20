@@ -15,6 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } 
 ?>
 
+<?php include './public/components/Sidebar.php' ?>
+
+
 <main class="flex-1 p-4">
   <h1 class="text-2xl mt-2 mb-4 font-semibold">Update Data Mahasiswa</h1>
 

@@ -2,12 +2,12 @@
 require_once 'config.php';
 require_once './public/utils/functions.php';
 
-$page = $_GET['page'] ?? 'home';
+$page = $_GET['page'] ?? 'login';
 
-$allowed_pages = ['home', 'create', 'update', 'delete'];
+$allowed_pages = ['home', 'create', 'update', 'delete', 'login'];
 
 if (!in_array($page, $allowed_pages)) {
-  $page = 'home';
+  $page = 'login';
 }
 
 $page = "./public/pages/$page.php";
@@ -25,7 +25,6 @@ $page = "./public/pages/$page.php";
 
 <body class="font-inter">
   <div class="flex min-h-screen">
-    <?php include './public/components/Sidebar.php' ?>
     <?php include $page ?>
   </div>
 
